@@ -2,13 +2,14 @@ import prisma from "../config/database.js";
 import { License } from "../../protocols.js";
 
 
+
 async function getCars() {
   return prisma.cars.findMany();
- 
+
 }
 
 async function getCar(id: number) {
-  return prisma.cars.findMany({
+  return prisma.cars.findUnique({
     where: {id}
   });
 
@@ -22,7 +23,7 @@ async function getCarWithLicensePlate(licensePlate: string) {
 }
 
 async function createCar(job: License) {
-  return prisma.cars.create({
+  await prisma.cars.create({
     data: job
   });
 }

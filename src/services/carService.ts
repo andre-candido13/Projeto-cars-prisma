@@ -2,7 +2,6 @@ import notFoundError from "../errors/notFoundError.js";
 import conflictError from "../errors/conflictError.js";
 import carRepository from "../repository/carRepository.js";
 
-
 async function getCars() {
   const cars = await carRepository.getCars();
   return cars;
